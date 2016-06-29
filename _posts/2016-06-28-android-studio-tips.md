@@ -1,17 +1,17 @@
 ---
 title: Android Studio 使用小技巧和快捷键
 date: 2016-06-28 22:34:39
-categories: 
+categories: Android
 tags: studio
 ---
-
-##Android Studio 使用小技巧和快捷键
 
 原文地址:http://www.open-open.com/lib/view/open1458715872710.html
 
 ### 写在前面
 
 本文翻译自 [Android Studio Tips by Philippe Breault](https://github.com/pavlospt/Android-Studio-Tips-by-Philippe-Breault/wiki)，一共收集了62个 Android Studio 使用小技巧和快捷键。 根据这些小技巧的使用场景，本文将这62个小技巧分为常用技巧（1 – 28）、编码技巧（29 – 49）和调试技巧（50 – 62），分成三个部分。
+
+<!-- more -->
 
 ### 1.书签
 
