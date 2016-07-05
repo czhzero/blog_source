@@ -50,7 +50,7 @@ Java是垃圾回收语言的一种，其优点是开发者无需特意管理内�
 > 3. 将强引用方式改成弱引用
 
 
-### Static Activities
+### Static Object
 
 在类中定义了静态Activity变量，把当前运行的Activity实例赋值于这个静态变量。
 如果这个静态变量在Activity生命周期结束后没有清空，就导致内存泄漏。因为static变量是贯穿这个应用的生命周期的，所以被泄漏的Activity就会一直存在于应用的进程中，不会被垃圾回收器回收。
@@ -96,53 +96,6 @@ static WeakReference<Activity> weakActivity;
 ```
 
 
-### Static Views
-
-类似的情况会发生在单例模式中，如果Activity经常被用到，那么在内存中保存一个实例是很实用的。正如之前所述，强制延长Activity的生命周期是相当危险而且不必要的，无论如何都不能这样做。
-
-特殊情况：如果一个View初始化耗费大量资源，而且在一个Activity生命周期内保持不变，那可以把它变成static，加载到视图树上(View Hierachy)，像这样，当Activity被销毁时，应当释放资源。（译者注：示例代码中并没有释放内存，把这个static view置null即可，但是还是不建议用这个static view的方法）
-
-代码示例:
-
-**修正前**
-
-```
-static view;
-
-    void setStaticView() {
-      view = findViewById(R.id.sv_button);
-    }
-
-    View svButton = findViewById(R.id.sv_button);
-    svButton.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        setStaticView();
-        nextActivity();
-      }
-    });
-
-```
-
-***修正后***
-
-```
-static WeakReference<View> weakView;
-
-    void setStaticView() {
-      View view = findViewById(R.id.sv_button);
-      weakView = new WeakReference<View>(view)
-    }
-
-    View svButton = findViewById(R.id.sv_button);
-    svButton.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        setStaticView();
-        nextActivity();
-      }
-    });
-
-```
-
 ### SensorManager
 
 最后，通过Context.getSystemService(int name)可以获取系统服务。这些服务工作在各自的进程中，帮助应用处理后台任务，处理硬件交互。如果需要使用这些服务，可以注册监听器，这会导致服务持有了Context的引用，如果在Activity销毁的时候没有注销这些监听器，会导致内存泄漏。
@@ -172,7 +125,7 @@ void registerListener() {
 **修正后**
 
 ```
-//增加unregist方法
+//增加unregist方法，即清空系统static对象对context的引用。
 sensorManager.unregisterListener(this);       
 
 ```
@@ -187,7 +140,7 @@ sensorManager.unregisterListener(this);
 
 ### Inner Classes
 
-继续，假设Activity中有个内部类，这样做可以提高可读性和封装性。将如我们创建一个内部类，而且持有一个静态变量的引用，恭喜，内存泄漏就离你不远了（译者注：销毁的时候置空，嗯）。
+继续，假设Activity中有个内部类，这样做可以提高可读性和封装性。将如我们创建一个内部类，而且持有一个静态变量的引用，恭喜，内存泄漏就离你不远了。
 
 内部类的优势之一就是可以访问外部类，不幸的是，导致内存泄漏的原因，就是内部类持有外部类实例的强引用。
 
@@ -215,10 +168,38 @@ sensorManager.unregisterListener(this);
 
 ```
 
+**修正后**
+
+```
+
+ private static Object inner;
+
+    void createInnerClass() {
+        class InnerClass {
+        }
+        inner = new InnerClass();
+    }
+
+    View icButton = findViewById(R.id.ic_button);
+    icButton.setOnClickListener(new View.OnClickListener() {
+        @Override public void onClick(View v) {
+            createInnerClass();
+            nextActivity();
+        }
+    });
+    
+    onDestroy() {
+      
+      inner == null;
+    }
+
+
+```
+
 ### Anonymous Classes
 
 相似地，匿名类也维护了外部类的引用。所以内存泄漏很容易发生，当你在Activity中定义了匿名的AsyncTsk
-。当异步任务在后台执行耗时任务期间，Activity不幸被销毁了（译者注：用户退出，系统回收），这个被AsyncTask持有的Activity实例就不会被垃圾回收器回收，直到异步任务结束。
+。当异步任务在后台执行耗时任务期间，Activity不幸被销毁了，这个被AsyncTask持有的Activity实例就不会被垃圾回收器回收，直到异步任务结束。
 
 代码示例:
 
@@ -247,6 +228,13 @@ void startAsyncTask() {
 ```
 
 **修正后**
+
+```
+
+//增加状态位，在onDestroy时候停止AsyncTask。
+
+
+```
 
 
 
@@ -283,6 +271,16 @@ void startAsyncTask() {
 
 ```
 
+**修正后**
+
+```
+
+//handler 改为静态
+//handler 内对象改为弱引用
+
+
+```
+
 ## 耗时线程引起的内存泄漏
 
 > 解决方案:1.将内部类变成静态内部类 , 2.如果有强引用Activity中的属性，则将该属性的引用方式改为弱引用, 3.在业务允许的情况下，当Activity执行onDestory时，结束这些耗时任务
@@ -316,6 +314,35 @@ void spawnThread() {
 
 ```
 
+**修正后**
+
+```
+    //优化后的方式
+    private static class BetterThread extends Thread {
+        private boolean isRunning = true;
+        @Override
+        public void run() {
+            super.run();
+            while(isRunning){
+                //doing something
+            }
+        }
+         
+        public void stopThread(){
+            isRunning=false;
+        }
+    }
+     
+     
+    //停止线程
+    @Override
+    protected void onDestroy() {
+        mBetterThread.stopThread();
+        super.onDestroy();
+    }
+
+```
+
 ### TimerTask
 
 只要是匿名类的实例，不管是不是在工作线程，都会持有Activity的引用，导致内存泄漏。
@@ -346,6 +373,14 @@ void scheduleTimer() {
 
 
 ```
+
+**修正后**
+
+```
+//解决方案与Threads解决方案相同
+
+```
+
 
 ## 资源未关闭引起的内存泄漏
 
