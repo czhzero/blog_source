@@ -79,6 +79,8 @@ if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_S
 
 - 请求权限后，系统会弹出请求权限的Dialog
 
+![dialog](http://o7y1sf21i.bkt.clouddn.com/blog/3/18501-06bc037ab77c9c62.png)
+
 - 用户选择允许或拒绝后，会回调onRequestPermissionsResult方法, 该方法类似于onActivityResult
 
 ```
