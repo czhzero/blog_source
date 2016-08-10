@@ -15,7 +15,7 @@ Android Studio 使用Gradle进行项目构建，相比Eclipse方便了许多，�
 JDK配置比较简单，安装完JDK，配置环境变量后，
 进入到[Project Structure]配置界面JDK路径即可。
 
-![JDK](http://o7y1sf21i.bkt.clouddn.com/blog/4/lALOXzh4gs0Bfc0D1g_982_381.png)
+![JDK](http://o7y1sf21i.bkt.clouddn.com/blog/005/lALOXzh4gs0Bfc0D1g_982_381.png)
 
 
 
@@ -52,7 +52,7 @@ android {
 
 SDK Tools的版本，在gradle文件中不需要配置，是Android SDK的工具组件，与编译关系不大。需要更新的话，可以打开Android Studio工具栏里的[sdk manager]
 
-![SDK Tools](http://o7y1sf21i.bkt.clouddn.com/blog/4/lALOXzh6Is0CzM0Few_1403_716.png)
+![SDK Tools](http://o7y1sf21i.bkt.clouddn.com/blog/005/lALOXzh6Is0CzM0Few_1403_716.png)
 
 ### Gradle Version
 
@@ -60,7 +60,7 @@ Gradle是整个项目构建版本，一直在更新，具体的更新信息可�
 
 修改Gradle版本，同样是进入到[Project Structure]配置界面.
 
-![Gradle Version](http://o7y1sf21i.bkt.clouddn.com/blog/4/lALOXyEtXczizQUC_1282_226.png)
+![Gradle Version](http://o7y1sf21i.bkt.clouddn.com/blog/005/lALOXyEtXczizQUC_1282_226.png)
 
 
 ### Android Plugin for Gradle

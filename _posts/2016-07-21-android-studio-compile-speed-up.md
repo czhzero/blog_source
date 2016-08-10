@@ -33,7 +33,7 @@ org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m //JVM最大允许分配的堆�
 
 ### 方法二:设置离线状态
 
-![离线状态](http://o7y1sf21i.bkt.clouddn.com/blog/5/lALOYktUms0CEM0FeQ_1401_528.png)
+![离线状态](http://o7y1sf21i.bkt.clouddn.com/blog/006/lALOYktUms0CEM0FeQ_1401_528.png)
 
 ***设置离线，Vpn用上后，似乎对整个编译也没有什么直观的改善。***
 

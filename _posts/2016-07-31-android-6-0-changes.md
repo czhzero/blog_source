@@ -20,7 +20,7 @@ tags: Android 6.0
 
 在运行于目标版本 Android 6.0 (API 级别 23) 及以上的应用程序中，必须在运行时检查并请求权限。通过新的 checkSelfPermission() 方法来确定你的应用程序是否已经被授权。通过新的 requestPermissions() 方法来请求权限。即使你的应用程序运行的目标版本不是 Android 6.0 (API 级别 23)，你也应该在新的授权模型下来测试应用程序。
 
-![解读Android6.0新功能和Api变更](http://o7y1sf21i.bkt.clouddn.com/blog/7/Android-m-4.jpg)
+![解读Android6.0新功能和Api变更](http://o7y1sf21i.bkt.clouddn.com/blog/008/Android-m-4.jpg)
 
 
 # Doze and App Standby(休眠与应用挂起)
@@ -84,7 +84,7 @@ adb shell dumpsys nnotification 命令不在答应通知文本。使用 adb shel
 
 - 如果矩形位置不在有效，并且这是需要刷新的唯一元素，则调用 invalidateContentRect() 方法。
 
-![解读Android6.0新功能和Api变更](http://o7y1sf21i.bkt.clouddn.com/blog/7/text-selection.gif)
+![解读Android6.0新功能和Api变更](http://o7y1sf21i.bkt.clouddn.com/blog/008/text-selection.gif)
 
 
 如果你在使用 Android 22.2 修订版的兼容包，悬浮工具栏不是向后兼容的，且使用默认的 ActionMode 对象。这导致悬浮工具栏无法显示。在 AppCompatActivity 中启用 ActionMode，首先调用 getDelegate() ，然后在返回的 AppCompatDelegate 对象中调用 setHandleNativeActionModesEnabled()，并设置输入参数为 false。这个调用为框架返回可控的 ActionMode 对象。在运行 Android 6.0 (API 级别 23) 的设备上，这允许框架支持 ActionBar 或悬浮工具栏模式。在 Android 5.1 (API 级别 22) 或更低版本，只有 ActionBar 是支持的。

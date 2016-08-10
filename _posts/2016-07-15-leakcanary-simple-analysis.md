@@ -17,4 +17,4 @@ LeakCanary实际上就是在本机上自动做了Heap dump，对生成的hprof�
 
 下面是一个LeakCanary的结果截图：
 
-[]()
+![LeakCanary内存泄露检测工具](http://o7y1sf21i.bkt.clouddn.com/blog/003/1.png)

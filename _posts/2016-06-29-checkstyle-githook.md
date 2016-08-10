@@ -285,7 +285,7 @@ pre-commit脚本, checkstyle-7.0-all.jar, 以及checks.xml存放到项目目录�
 这样,再运行git commit的时候就会自动帮你检查你的代码了。
 
 
-![Alt text](http://o7y1sf21i.bkt.clouddn.com/blog/1/blog12.png)
+![Alt text](http://o7y1sf21i.bkt.clouddn.com/blog/002/1.png)
 
 
 根据提示修改代码吧。

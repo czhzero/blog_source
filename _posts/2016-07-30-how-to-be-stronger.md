@@ -12,7 +12,7 @@ tags: 知识体系
 
 <!-- more -->
 
-![技术高手如何炼成？](http://o7y1sf21i.bkt.clouddn.com/blog/6/bingshanyijiao.jpg)
+![技术高手如何炼成？](http://o7y1sf21i.bkt.clouddn.com/blog/007/bingshanyijiao.jpg)
 
 # 第一阶段 认真构建完整的知识体系
 
@@ -148,7 +148,7 @@ tags: 知识体系
 
 为什么要写出来、讲出来呢？因为有一个学习金字塔理论，如下图所示：
 
-![技术高手如何炼成？](http://o7y1sf21i.bkt.clouddn.com/blog/6/xuexijinzita.png)
+![技术高手如何炼成？](http://o7y1sf21i.bkt.clouddn.com/blog/007/xuexijinzita.png)
 
 我们读过的事情能够记住学习内容的10%，
 我们听过的事情能够记住20%，
