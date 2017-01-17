@@ -1,7 +1,7 @@
 ---
 title: 技术高手如何炼成？
 date: 2016-07-30 16:56:56
-categories: 深度文摘
+categories: 文摘随笔
 tags: 知识体系
 ---
 

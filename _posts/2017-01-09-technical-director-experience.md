@@ -1,8 +1,8 @@
 ---
 title: 新年开篇 | 总结一个技术总监的教训和经验
 date: 2017-01-09 11:09:03
-categories: 深度文摘
-tags:
+categories: 文摘随笔
+tags: 技术总监的工作
 ---
 
 ![](http://o7y1sf21i.bkt.clouddn.com/blog/018/640)

@@ -1,7 +1,7 @@
 ---
 title: MAC安装oh my zsh
 date: 2016-10-18 10:56:47
-categories: Mac
+categories: 开发工具
 tags: oh-my-zsh
 ---
 

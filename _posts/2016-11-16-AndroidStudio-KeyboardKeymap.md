@@ -1,7 +1,7 @@
 ---
 title: Android Studio常用快捷键汇总
 date: 2016-11-16 14:24:28
-categories: Android
+categories: 开发工具
 tags: Keymaps
 ---
 

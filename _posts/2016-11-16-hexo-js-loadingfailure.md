@@ -1,8 +1,8 @@
 ---
 title: Hexo加载vendor目录下js文件失败导致博客页面加载空白
 date: 2016-11-16 19:14:36
-categories: Hexo	
-tags: javascript
+categories: Bug分析	
+tags: hexo
 ---
 
 今天下午用hexo框架deploy一篇文章，发布完成后，发现网页无法打开了。出现了很多404错误。

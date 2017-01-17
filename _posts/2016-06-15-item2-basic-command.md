@@ -1,7 +1,7 @@
 ---
 title: iterm2 常用快捷键总结
 date: 2016-06-15 09:59:09
-categories: Linux
+categories: 开发工具
 tags: iTerm2命令
 ---
 

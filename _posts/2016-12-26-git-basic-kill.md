@@ -1,7 +1,7 @@
 ---
 title: Git 基础命令操作指引
 date: 2016-12-26 20:05:34
-categories: Git
+categories: 开发工具
 tags: Git
 ---
 

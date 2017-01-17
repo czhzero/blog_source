@@ -1,7 +1,7 @@
 ---
 title: Android Studio提高开发效率必备神器 - JRebel for Android
 date: 2016-08-10 14:28:26
-categories: Android
+categories: 开发工具
 tags: JRebel
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Java代码规范之CheckStyle + Git Hook
 date: 2016-06-29 11:18:37
-categories: Java
+categories: 开发工具
 tags: [checkstyle, githook]
 ---
 
