@@ -30,18 +30,6 @@ TPS为每秒处理的事务数，是系统吞吐量的指标，在搜索系统�
 
 在移动设备开发中耗电量是一个非常重要的指标，如果用户一旦发现我们的应用非常耗电，不好意思，他们大多会选择卸载来解决此类问题，所以耗电量是一个十分重要的问题。其实我们一款应用耗电量最大的部分不是UI绘制显示等，常见耗电量最大原因基本都是因为网络数据交互、GPS定位、大量内存性能问题、冗余的后台线程和Service等造成。
 
-## 性能调优方式总括
-
-- 利用多线程并发或分布式，提高TPS
-- 同步改异步，提高TPS
-- 提前或延迟操作，错峰提高TPS
-- 缓存(包括对象缓存、IO 缓存、网络缓存等)
-- 数据结构和算法优化
-- 性能更优的底层接口调用，如 JNI 实现
-- 逻辑优化
-- 需求优化
-- 布局优化
-
 
 ## UI优化
 
@@ -260,7 +248,7 @@ private static class ViewHolder {
 
 ```
 
-### 4.其他
+### 4.其他建议
 
 (1) 用SurfaceView或TextureView代替普通View
 SurfaceView或TextureView可以通过将绘图操作移动到另一个单独线程上提高性能。
@@ -291,7 +279,7 @@ Android 4.3最大的改变，就是支持OpenGL ES 3.0。相比2.0，3.0有更�
 - 使用GPU呈现模式图及FPS
 - 使用Memory监测及GC打印与Allocation Tracker进行UI卡顿分析
 - 使用Traceview和dmtracedump进行分析优化
--  使用Systrace进行分析优化
+- 使用Systrace进行分析优化
 
 
 详细内容具体参考[Android性能优化总结](http://blog.csdn.net/christopher_411524/article/details/50582740)
