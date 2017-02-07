@@ -47,7 +47,7 @@ TPS为每秒处理的事务数，是系统吞吐量的指标，在搜索系统�
 
 ### 1.抽象布局标签
 
-- \<include>标签
+- `<include>`标签
 
 include标签常用于将布局中的公共部分提取出来供其他layout共用，以实现布局模块化，这在布局编写方便提供了大大的便利。
 下面以在一个布局main.xml中用include引入另一个布局foot.xml为例。main.mxl代码如下：
@@ -97,7 +97,7 @@ include标签常用于将布局中的公共部分提取出来供其他layout共�
 <include>标签唯一需要的属性是layout属性，指定需要包含的布局文件。可以定义android:id和android:layout_*属性来覆盖被引入布局根节点的对应属性值。注意重新定义android:id后，子布局的顶结点i就变化了。
 
 
-- \<viewstub>标签 
+- `<viewstub>`标签 
 
 viewstub标签同include标签一样可以用来引入一个外部布局，不同的是，viewstub引入的布局默认不会扩张，即既不会占用显示也不会占用位置，从而在解析layout时节省cpu和内存。
 viewstub常用来引入那些默认不会显示，只在特殊情况下显示的布局，如进度布局、网络失败显示的刷新布局、信息出错出现的提示布局等。
@@ -199,7 +199,7 @@ networkErrorView =  findViewById(R.id.network_error_layout); // 获取展开后�
 
 效果一致，只是不用显示的转换为ViewStub。通过viewstub的原理我们可以知道将一个view设置为GONE不会被解析，从而提高layout解析速度，而VISIBLE和INVISIBLE这两个可见性属性会被正常解析。
 
-- \<merge>标签
+- `<merge>`标签
 
 在使用了include后可能导致布局嵌套过多，多余不必要的layout节点，从而导致解析变慢，不必要的节点和嵌套可通过hierarchy viewer(下面布局调优工具中有具体介绍)或设置->开发者选项->显示布局边界查看。
 
@@ -215,8 +215,6 @@ b.某布局作为子布局被其他布局include时，使用merge当作该布局
 (1) 首次不需要使用的节点设置为GONE或使用viewstub
 
 (2) 使用RelativeLayout代替LinearLayout大约在Android4.0之前，新建工程的默认main.xml中顶节点是LinearLayout，而在之后已经改为RelativeLayout，因为RelativeLayout性能更优，且可以简单实现LinearLayout嵌套才能实现的布局。
-
-(3) 
 
 
 ### 3.减少不必要的infalte
