@@ -10,6 +10,13 @@ tags: 性能优化
 
 <!-- more -->
 
+性能优化系列:
+
+- [Android性能优化(一)－UI优化](http://www.czhzero.com/2017/02/07/performance-optimization-1/)
+- [Android性能优化(一)－数据库优化](http://www.czhzero.com/2017/02/07/performance-optimization-2/)
+- [Android性能优化(三)－ 移动网络优化](http://www.czhzero.com/2017/02/07/performance-optimization-3/)
+- [Android性能优化(四)－ 代码优化](http://www.czhzero.com/2017/02/07/performance-optimization-4/)
+
 ## 性能问题指标
 
 - 响应时间
@@ -262,24 +269,27 @@ RenderScript是Adnroid3.0引进的用来在Android上写高性能代码的一种
 Android支持使用OpenGL API的高性能绘图，这是Android可用的最高级的绘图机制，在游戏类对性能要求较高的应用中得到广泛使用。
 Android 4.3最大的改变，就是支持OpenGL ES 3.0。相比2.0，3.0有更多的缓冲区对象、增加了新的着色语言、增加多纹理支持等等，将为Android游戏带来更出色的视觉体验。
  
-(4) 尽量为所有分辨率创建资源
+(4)尽量为所有分辨率创建资源
 减少不必要的硬件缩放，这会降低UI的绘制速度。
 
-(5)背景和图片等内存分配优化；尽量减少不必要的背景设置，图片尽量压缩处理显示，尽量避免频繁内存抖动等问题出现。
+(5)尽量减少不必要的背景设置，图片尽量压缩处理显示，尽量避免频繁内存抖动等问题出现。
 
-(6)自定义View等绘图与布局优化；尽量避免在draw、measure、layout中做过于耗时及耗内存操作，尤其是draw方法中，尽量减少draw、measure、layout等执行次数。
+(6)尽量避免在draw、measure、layout中做过于耗时及耗内存操作，尤其是draw方法中，尽量减少draw、measure、layout等执行次数。
 
-(7)避免ANR，不要在UI线程中做耗时操作，遵守ANR规避守则，譬如多次数据库操作等。
+(7)将Activity中的window的背景图设置为空，默认的背景不为空getWindow().setBackgroundDrawable(null)。
+
+(8)View中设置缓存属性.setDrawingCache为true。
 
 ### 5.布局调优工具
 
-- hierarchy viewer
-- lint
+- Hierarchy viewer
+- Android Lint
 - 使用GPU过度绘制分析UI性能
 - 使用GPU呈现模式图及FPS
 - 使用Memory监测及GC打印与Allocation Tracker进行UI卡顿分析
 - 使用Traceview和dmtracedump进行分析优化
 - 使用Systrace进行分析优化
+- 通过Android SDK中tools目录下的layoutopt命令
 
 
 详细内容具体参考[Android性能优化总结](http://blog.csdn.net/christopher_411524/article/details/50582740)
