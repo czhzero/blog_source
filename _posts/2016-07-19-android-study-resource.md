@@ -1,17 +1,16 @@
 ---
-title: Android学习资源索引
+title: 常用Android学习资源汇总
 date: 2016-07-19 10:13:59
 categories: Android
 tags: 资源索引
 ---
 
-
-## 资源目录
+常用Android资源汇总:
 
 - [热门网站](#热门网站)
-	- 官方网站
-	- 教学网站
-	- 开发者社区 
+	- [官方网站](#官方网站)
+	- [教学网站](#教学网站)
+	- [开发者社区](#开发者社区) 
 - [个人博客](#个人博客)
 - [技术专栏](#技术专栏)
 	-  网络相关
@@ -36,7 +35,7 @@ tags: 资源索引
 * [Android Weekly 中文版](http://wiki.jikexueyuan.com/project/android-weekly/)
 * [极客学院 Wiki Android 板块](http://wiki.jikexueyuan.com/list/android)
 * [Gradle Android Plugin 中文版》](https://chaosleong.gitbooks.io/gradle-for-android/content/)
-* [Google samples](https://github.com/googlesamples) —— 看优秀代码是最好的学习方式
+* [Google samples](https://github.com/googlesamples) 
 
 ### 教学网站
 
@@ -55,7 +54,9 @@ tags: 资源索引
 * [干货集中营](http://gank.io) —— 每日分享妹子图 和 技术干货，还有供大家中午休息的休闲视频
 * [掘金 Android](http://gold.xitu.io/explore/android)
 * [V2ex](https://www.v2ex.com/go/android)
-
+* [泡在网上的日子](http://www.jcodecraeer.com/)
+* [SagmentFault](https://segmentfault.com/)
+* [androidxref](http://androidxref.com/) - android源码
 
 
 ## 个人博客
@@ -90,6 +91,7 @@ tags: 资源索引
 * [hujiaweibujidao](http://hujiaweibujidao.github.io) —— 《Android开发艺术探索》读书笔记系列
 * [BlackSwift](http://www.jianshu.com/users/b99b0edd4e77/latest_articles) —— 简书作者【Blur实时渲染，AnimeWallpaper】
 * [Android 源码解析专栏](http://blog.csdn.net/qq_23547831?viewmode=contents)
+* [Corn](http://www.cnblogs.com/lwbqqyumidi/)
 
 ## 技术专栏
 
@@ -140,6 +142,13 @@ tags: 资源索引
 ### 插件化开发
 
 * [插件化开发专栏](http://www.androidblog.cn/index.php/Index/detail/id/16) —— 有关插件化的资料这里全都有
+* [DroidPlugin](https://github.com/Qihoo360/DroidPlugin) —— 360手机助手插件机制
+* [Android-Plugin-Framework](https://github.com/limpoxe/Android-Plugin-Framework)
+* [Small](https://github.com/wequick/Small) —— Small，做最轻巧的跨平台插件化框架
+* [dynamic-load-apk](https://github.com/singwhatiwanna/dynamic-load-apk) —— Android 使用动态加载框架DL进行插件化开发
+* [DynamicAPK](https://github.com/CtripMobile/DynamicAPK) —— 携程动态加载技术
+* [android-pluginmgr](https://github.com/houkx/android-pluginmgr)
+* [AndFix](https://github.com/alibaba/AndFix) —— 阿里动态加载
 
 
 ### 单元测试系列
