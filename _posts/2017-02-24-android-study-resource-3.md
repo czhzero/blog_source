@@ -33,6 +33,12 @@ tags: 资源索引
 * [Android Retrofit 2.0 使用-补充篇](http://www.jianshu.com/p/93153b34310e)
 * [Retrofit 笔记](http://www.jianshu.com/p/90b1f20b123d)
 
+### 视图绘制与事件分发
+
+* [Activity是如何接收到touch事件的](http://blog.csdn.net/huangjijie123456/article/details/51365097c)
+* [图解 Android 事件分发机制](http://www.jianshu.com/p/e99b5e8bd67b)
+* [Android View的绘制流程](http://www.jianshu.com/p/5a71014e7b1b)
+
 ### RxJava相关
 
 * [Rxjava 详解](http://gank.io/post/560e15be2dca930e00da1083) —— 抛物线出品经典Rxjava详解
