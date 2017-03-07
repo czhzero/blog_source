@@ -5,6 +5,8 @@ categories: Android
 tags: surfaceview
 ---
 
+Android的显示过程可以简单的概括为：Android应用程序把经过测量、布局、绘制后的surface缓存数据，通过SurfaceFlinger把数据渲染到显示屏幕上，通过Android但刷新机制来刷新数据。
+
 <!-- more -->
 
 ## View简介
