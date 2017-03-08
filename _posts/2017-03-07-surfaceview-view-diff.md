@@ -31,6 +31,29 @@ Surfaceview也可以在onDraw里面绘图，即直接在UI主线程绘图并渲�
 ![](http://o7y1sf21i.bkt.clouddn.com/blog/023/20160811222116554)
 
 
+### SurfaceHolder
+
+1. Canvas lockCanvas():锁定整个SurfaceView对象，获取该Surface上的Canvas
+2. Canvas lockCanvas(Rect dirty):锁定SurfaceView上Rect划分的区域，获取该Surface上的Canvas
+3. unlockCanvasAndPost(canvas):释放绘图、提交所绘制的图形，需要注意，当调用SurfaceHolder上的unlockCanvasAndPost方法之后，该方法之前所绘制的图形还处于缓冲之中，下一次lockCanvas()方法锁定的区域可能会“遮挡”它。
+
+使用的SurfaceView的时候，一般情况下要对其进行创建，销毁，改变时的情况进行监视，这就要用到 SurfaceHolder.Callback。
+
+```
+class XxxView extends SurfaceView implements SurfaceHolder.Callback { 
+
+public void surfaceChanged(SurfaceHolder holder,int format,int width,int height){} 
+//看其名知其义，在surface的大小发生改变时激发 
+public void surfaceCreated(SurfaceHolder holder){} 
+//同上，在创建时激发，一般在这里调用画图的线程。 
+public void surfaceDestroyed(SurfaceHolder holder) {} 
+//同上，销毁时激发，一般在这里将画图的线程停止、释放。 
+
+} 
+
+```
+
+
 ## 区别
 
 - View缺乏双缓冲机制，SurfaceView有双缓冲
