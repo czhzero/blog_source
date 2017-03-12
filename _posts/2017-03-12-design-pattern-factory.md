@@ -146,20 +146,13 @@ public class FactoryType3 {
         return new ConcreatProductA();
     }
 
-    public static ConcreatProductB createProductB() {
-        return new ConcreatProductB();
-    }
-
 }
 
 public static void main(String args[]) {
 
 //简单工厂模式或者静态工厂模式{
 Product A3 = FactoryType3.createProductA();
-Product B3 = FactoryType3.createProductB();
 A3.method();
-B3.method();
-
 
 }
 
