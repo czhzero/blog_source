@@ -179,15 +179,177 @@ public static void main(String args[]) {
 
 ```
 
-在适用范围上，又可以将代理分为以下四种，
+在适用范围上，又可以将代理分为以下几种，
+
+### 普通代理
+
+客户端只能访问代理角色，而不能访问真实角色。
+
+```
+public static class Person {
+
+    public String mUserName;
+
+    public Person(String userName) {
+        mUserName = userName;
+    }
+
+    public void submit() {
+        System.out.println("dosomething");
+    }
+}
+
+
+public static class Proxy {
+
+    private Person mPerson;
+
+    public Proxy(String userName) {
+        mPerson = new Person(userName);
+    }
+
+    public void submit() {
+        mPerson.submit();
+    }
+
+}
+    
+public static void main(String args[]) {
+
+	 Proxy proxy = new Proxy("xiaoming");
+	 proxy.submit();
+
+}
+    
+    
+```
+
+### 强制代理
+
+强制代理的概念是指，要从真实角色找到代理角色，不允许直接访问真实角色，高层模块只要调用getProxy就可以访问真实角色的所有方法。代理管理由真实角色自己管理。
+
+```
+public interface IGamePlayer {
+    void login();
+
+    void upgrade();
+
+    IGamePlayer getProxy();
+}
+
+public static class GamePlayerProxy implements IGamePlayer {
+
+    public GamePlayer mPlayer;
+
+    public GamePlayerProxy(GamePlayer player) {
+        mPlayer = player;
+    }
+
+    @Override
+    public void login() {
+        mPlayer.login();
+    }
+
+    @Override
+    public void upgrade() {
+        mPlayer.upgrade();
+    }
+
+    @Override
+    public IGamePlayer getProxy() {
+        return this;
+    }
+}
+
+
+public static class GamePlayer implements IGamePlayer {
+
+    public GamePlayerProxy mProxy;
+    public String mName;
+
+    public GamePlayer(String name) {
+        mName = name;
+    }
+
+    @Override
+    public void login() {
+        if (isMyProxy()) {
+            System.out.println("登录游戏");
+        } else {
+            System.out.println("请使用官方指定代理");
+        }
+    }
+
+    @Override
+    public void upgrade() {
+        if (isMyProxy()) {
+            System.out.println("打怪升级");
+        } else {
+            System.out.println("请使用官方指定代理");
+        }
+    }
+
+    @Override
+    public IGamePlayer getProxy() {
+        mProxy = new GamePlayerProxy(this);
+        return mProxy;
+    }
+
+    private boolean isMyProxy() {
+        if (mProxy == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+}
+
+public static void main(String args[]) {
+    GamePlayer player = new GamePlayer("zhangsan");
+
+    player.login();                 //被禁用
+    player.upgrade();               //被禁用
+
+    GamePlayerProxy proxy = new GamePlayerProxy(player);
+    proxy.login();                  //被禁用
+    proxy.upgrade();                //被禁用
+
+    player.getProxy().login();      //指定代理
+    player.getProxy().upgrade();    //指定代理
+}
+
+```
+
+### 虚拟代理
+
+使用一个代理对象表示一个十分耗资源掉对象，并在真正需要时才创建。
+
+```
+public class Proxy implements Subject {
+
+	private Subject subject;
+	
+	public void request() {
+		if(subject == null) {
+			subject = new RealSubject();
+		}
+		subject.request();
+	}
+	
+}
+
+```
+
+
+### 个性代理
+
+一个代理可以实现多个接口，实现多个任务。代理的主要目的就是在目标对象方法的基础上增强，这种增强的本质就是对目标对象的方法进行拦截和过滤。
 
 ### 远程代理
 
 为某个对象在不同的内存地址空间提供局部代理，使系统可以将Server部分的实现隐藏，以便Client可以不必考虑Server的存在。
 
-### 虚拟代理
-
-使用一个代理对象表示一个十分耗资源掉对象，并在真正需要时才创建。
 
 ### 保护代理
 
