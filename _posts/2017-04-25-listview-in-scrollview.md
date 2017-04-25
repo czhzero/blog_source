@@ -1,7 +1,7 @@
 ---
 title: ScrollView内部嵌套ListView的高度计算问题
 date: 2017-04-25 15:55:25
-categories: Android
+categories: Bug分析
 tags: ListView嵌套
 ---
 
