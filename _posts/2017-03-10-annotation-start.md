@@ -69,9 +69,9 @@ public @interface ActionListener {
 > Annotation的“生命周期”限制。
 > 
 > 取值（RetentionPoicy）有：
-> 1.SOURCE:在源文件中有效（即源文件保留）
-> 2.CLASS:在class文件中有效（即class保留）
-> 3.RUNTIME:在运行时有效（即运行时保留）
+> 1.SOURCE:在源文件中有效（即源文件保留）, 例如，@Override
+> 2.CLASS:在class文件中有效（即class保留）,例如， @NonNull
+> 3.RUNTIME:在运行时有效（即运行时保留）, 例如，@Deprecated
 
 
 ## 2.注解事件处理器 ##
